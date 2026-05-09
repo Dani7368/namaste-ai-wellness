@@ -28,6 +28,196 @@
 <div class="app-shell">
 
   <!-- ═══════════════════════════════════════════════
+       SCREEN: ONBOARDING
+  ════════════════════════════════════════════════ -->
+  <div class="screen no-nav active" id="screen-onboarding">
+    <div class="onboard-wrap">
+      <button class="onboard-skip" onclick="skipOnboarding()">Skip</button>
+
+      <div class="onboard-slides" id="onboard-slides">
+
+        <!-- Slide 1 -->
+        <div class="onboard-slide">
+          <div class="onboard-img-wrap">
+            <img src="images/pexels-polina-kovaleva-6019787.jpg" alt="Wellness ritual" />
+          </div>
+          <div class="onboard-content">
+            <div>
+              <p class="onboard-eyebrow">Welcome to Namaste</p>
+              <h2 class="onboard-title">Rituals that meet<br><em>you where you are</em></h2>
+              <p class="onboard-desc">Every day is different. Namaste reads your mood, energy and intention — then builds a practice just for you.</p>
+            </div>
+            <div class="onboard-footer">
+              <div class="onboard-dots">
+                <span class="onboard-dot active" id="dot-0"></span>
+                <span class="onboard-dot" id="dot-1"></span>
+                <span class="onboard-dot" id="dot-2"></span>
+              </div>
+              <button class="onboard-next-btn" onclick="onboardNext()">Next</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="onboard-slide">
+          <div class="onboard-img-wrap">
+            <img src="images/pic1.jpg" alt="AI generator" />
+          </div>
+          <div class="onboard-content">
+            <div>
+              <p class="onboard-eyebrow">AI Ritual Generator</p>
+              <h2 class="onboard-title">Tell it how you feel,<br><em>get your practice</em></h2>
+              <p class="onboard-desc">Answer 4 quick questions — mood, energy, time, intention. Our AI crafts a complete yoga, breathwork and meditation session.</p>
+            </div>
+            <div class="onboard-footer">
+              <div class="onboard-dots">
+                <span class="onboard-dot" id="dot-0b"></span>
+                <span class="onboard-dot active" id="dot-1b"></span>
+                <span class="onboard-dot" id="dot-2b"></span>
+              </div>
+              <button class="onboard-next-btn" onclick="onboardNext()">Next</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="onboard-slide">
+          <div class="onboard-img-wrap">
+            <img src="teachersimages/linda.jpeg" alt="Expert guides" />
+          </div>
+          <div class="onboard-content">
+            <div>
+              <p class="onboard-eyebrow">World-class Guides</p>
+              <h2 class="onboard-title">Led by experts,<br><em>personalized by AI</em></h2>
+              <p class="onboard-desc">Practice with hand-picked wellness teachers matched to your ritual. Each session feels made just for you.</p>
+            </div>
+            <div class="onboard-footer">
+              <div class="onboard-dots">
+                <span class="onboard-dot" id="dot-0c"></span>
+                <span class="onboard-dot" id="dot-1c"></span>
+                <span class="onboard-dot active" id="dot-2c"></span>
+              </div>
+              <button class="onboard-next-btn" onclick="onboardNext()">Get Started</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SCREEN: PRICING
+  ════════════════════════════════════════════════ -->
+  <div class="screen no-nav" id="screen-pricing">
+
+    <div class="pricing-header">
+      <p class="pricing-eyebrow">Choose your plan</p>
+      <h2 class="pricing-title">Simple,<br><em>transparent pricing</em></h2>
+      <p class="pricing-sub">Start free. Upgrade when you're ready.</p>
+    </div>
+
+    <!-- Billing toggle -->
+    <div class="pricing-toggle">
+      <span class="toggle-label on" id="label-monthly">Monthly</span>
+      <button class="billing-switch" id="billing-switch" onclick="toggleBilling()"></button>
+      <span class="toggle-label" id="label-annual">Annual</span>
+      <span class="save-badge">Save 40%</span>
+    </div>
+
+    <div class="pricing-cards">
+
+      <!-- Free -->
+      <div class="price-card free">
+        <p class="price-card-name">Free</p>
+        <div class="price-amount">
+          <span class="price-currency">$</span>
+          <span class="price-number">0</span>
+          <span class="price-period">/ mo</span>
+        </div>
+        <ul class="price-features">
+          <li><span class="feat-icon">✓</span> 3 AI Rituals per month</li>
+          <li><span class="feat-icon">✓</span> Basic practice library</li>
+          <li><span class="feat-icon">✓</span> 2 teacher profiles</li>
+          <li><span class="feat-icon feat-dim">✗</span> Unlimited AI generation</li>
+          <li><span class="feat-icon feat-dim">✗</span> Offline access</li>
+          <li><span class="feat-icon feat-dim">✗</span> All teachers &amp; guides</li>
+        </ul>
+        <button class="price-cta" onclick="choosePlan('free')">Start for Free</button>
+      </div>
+
+      <!-- Pro -->
+      <div class="price-card pro">
+        <span class="price-popular">Most Popular</span>
+        <p class="price-card-name">Pro</p>
+        <div class="price-amount">
+          <span class="price-currency">$</span>
+          <span class="price-number" id="pro-price">12</span>
+          <span class="price-period">/ mo</span>
+        </div>
+        <ul class="price-features">
+          <li><span class="feat-icon">✓</span> Unlimited AI Rituals</li>
+          <li><span class="feat-icon">✓</span> Full practice library</li>
+          <li><span class="feat-icon">✓</span> All 20+ teachers</li>
+          <li><span class="feat-icon">✓</span> Offline access</li>
+          <li><span class="feat-icon">✓</span> Progress tracking</li>
+          <li><span class="feat-icon">✓</span> Priority support</li>
+        </ul>
+        <button class="price-cta" onclick="choosePlan('pro')">Start 7-Day Free Trial</button>
+      </div>
+
+    </div>
+
+    <p class="pricing-note">No credit card required for Free plan.<br>Cancel Pro anytime — no questions asked.</p>
+
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SCREEN: AUTH (SIGN UP / LOG IN)
+  ════════════════════════════════════════════════ -->
+  <div class="screen no-nav" id="screen-auth">
+    <div class="auth-wrap">
+
+      <p class="auth-logo"><em>Namaste</em></p>
+
+      <div>
+        <h2 class="auth-title" id="auth-title">Create your<br><em>account</em></h2>
+        <p class="auth-sub" id="auth-sub">Join thousands building a daily wellness practice.</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tab-signup" onclick="switchTab('signup')">Sign Up</button>
+        <button class="auth-tab" id="tab-login" onclick="switchTab('login')">Log In</button>
+      </div>
+
+      <!-- Form -->
+      <div class="auth-form" id="auth-form">
+        <div class="auth-field" id="field-name">
+          <label class="auth-label">Full Name</label>
+          <input class="auth-input" type="text" id="input-name" placeholder="Your name" autocomplete="name" />
+        </div>
+        <div class="auth-field">
+          <label class="auth-label">Email</label>
+          <input class="auth-input" type="email" id="input-email" placeholder="you@example.com" autocomplete="email" />
+        </div>
+        <div class="auth-field">
+          <label class="auth-label">Password</label>
+          <input class="auth-input" type="password" id="input-password" placeholder="At least 8 characters" autocomplete="new-password" />
+        </div>
+        <button class="auth-submit" id="auth-submit-btn" onclick="authSubmit()">Create Account</button>
+      </div>
+
+      <div class="auth-or">or</div>
+      <button class="auth-guest" onclick="continueAsGuest()">Continue as Guest</button>
+
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════
        SCREEN: HOME
   ════════════════════════════════════════════════ -->
   <div class="screen screen-home active" id="screen-home">
@@ -541,10 +731,12 @@
   ════════════════════════════════════════════════ -->
   <div class="screen screen-profile" id="screen-profile">
     <div class="profile-hero">
-      <div class="profile-avatar">D</div>
-      <p class="profile-name">Welcome back</p>
-      <p class="profile-email">Your wellness journey</p>
+      <div class="profile-avatar" id="profile-avatar">D</div>
+      <p class="profile-name" id="profile-display-name">Welcome back</p>
+      <p class="profile-email" id="profile-display-email">guest@namaste.app</p>
+      <span class="profile-plan-badge" id="profile-plan-badge">✦ Free Plan</span>
     </div>
+
     <div class="profile-stats">
       <div class="profile-stat">
         <span class="profile-stat-val">12</span>
@@ -559,8 +751,18 @@
         <span class="profile-stat-label">Day streak</span>
       </div>
     </div>
+
+    <!-- Upgrade card (hidden for Pro users) -->
+    <div class="upgrade-card" id="upgrade-card">
+      <div class="upgrade-card-text">
+        <p class="upgrade-card-title">Go Pro</p>
+        <p class="upgrade-card-sub">Unlimited rituals + all teachers</p>
+      </div>
+      <button class="upgrade-btn" onclick="goTo('screen-pricing')">Upgrade</button>
+    </div>
+
     <div class="profile-section">
-      <p class="profile-section-title">Settings</p>
+      <p class="profile-section-title">Preferences</p>
       <div class="profile-item">
         <span class="profile-item-label">Daily reminder</span>
         <span class="profile-item-value">7:00 AM</span>
@@ -578,6 +780,20 @@
         <span class="profile-item-value">On</span>
       </div>
     </div>
+
+    <div class="profile-section">
+      <p class="profile-section-title">Account</p>
+      <div class="profile-item">
+        <span class="profile-item-label">Subscription</span>
+        <span class="profile-item-value" id="profile-plan-label">Free</span>
+      </div>
+      <div class="profile-item">
+        <span class="profile-item-label">Member since</span>
+        <span class="profile-item-value">May 2026</span>
+      </div>
+    </div>
+
+    <button class="profile-logout" onclick="logout()">Log Out</button>
   </div>
 
 
@@ -612,7 +828,9 @@
 
 
 <script>
-// ─── NAVIGATION ────────────────────────────────────────────
+// ─── STATE ─────────────────────────────────────────────────
+
+const NO_NAV = new Set(['screen-onboarding','screen-pricing','screen-auth']);
 
 const NAV_MAP = {
   'screen-home':      'nav-home',
@@ -624,7 +842,25 @@ const NAV_MAP = {
   'screen-profile':   'nav-profile',
 };
 
-let currentScreen = 'screen-home';
+let currentScreen = 'screen-onboarding';
+let isAnnual = false;
+let selectedPlan = 'free';
+let authMode = 'signup';
+
+// ─── BOOT ──────────────────────────────────────────────────
+
+window.addEventListener('DOMContentLoaded', function() {
+  const user = loadUser();
+  if (user) {
+    applyUserToProfile(user);
+    switchToApp('screen-home');
+  } else {
+    // already showing onboarding (default active class)
+    document.querySelector('.bottom-nav').style.display = 'none';
+  }
+});
+
+// ─── NAVIGATION ────────────────────────────────────────────
 
 function goTo(id) {
   if (id === currentScreen) return;
@@ -635,17 +871,32 @@ function goTo(id) {
 
   prev.classList.remove('active');
   prev.classList.add('exit');
-  setTimeout(() => prev.classList.remove('exit'), 380);
+  setTimeout(function() { prev.classList.remove('exit'); }, 380);
 
   next.scrollTop = 0;
   next.classList.add('active');
+
+  const nav = document.querySelector('.bottom-nav');
+  nav.style.display = NO_NAV.has(id) ? 'none' : 'flex';
 
   updateNav(id);
   currentScreen = id;
 }
 
+function switchToApp(screenId) {
+  const current = document.getElementById(currentScreen);
+  if (current) { current.classList.remove('active'); }
+
+  const next = document.getElementById(screenId);
+  if (next) { next.classList.add('active'); }
+
+  document.querySelector('.bottom-nav').style.display = 'flex';
+  updateNav(screenId);
+  currentScreen = screenId;
+}
+
 function updateNav(screenId) {
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(function(b) { b.classList.remove('active'); });
   const navId = NAV_MAP[screenId];
   if (navId) {
     const el = document.getElementById(navId);
@@ -921,6 +1172,141 @@ document.querySelectorAll('.filter-chip').forEach(function(chip) {
     chip.classList.add('active');
   });
 });
+
+// ─── ONBOARDING ─────────────────────────────────────────────
+
+var onboardStep = 0;
+
+function onboardNext() {
+  if (onboardStep < 2) {
+    onboardStep++;
+    var slides = document.getElementById('onboard-slides');
+    slides.style.transform = 'translateX(-' + (onboardStep * 100) + '%)';
+    updateDots();
+  } else {
+    goTo('screen-pricing');
+  }
+}
+
+function updateDots() {
+  ['dot-0','dot-1','dot-2'].forEach(function(id, i) {
+    var el = document.getElementById(id);
+    if (el) el.className = 'onboard-dot' + (i === onboardStep ? ' active' : '');
+  });
+  ['dot-0b','dot-1b','dot-2b'].forEach(function(id, i) {
+    var el = document.getElementById(id);
+    if (el) el.className = 'onboard-dot' + (i === onboardStep ? ' active' : '');
+  });
+  ['dot-0c','dot-1c','dot-2c'].forEach(function(id, i) {
+    var el = document.getElementById(id);
+    if (el) el.className = 'onboard-dot' + (i === onboardStep ? ' active' : '');
+  });
+}
+
+function skipOnboarding() {
+  goTo('screen-pricing');
+}
+
+// ─── PRICING ────────────────────────────────────────────────
+
+function toggleBilling() {
+  isAnnual = !isAnnual;
+  var sw = document.getElementById('billing-switch');
+  sw.className = 'billing-switch' + (isAnnual ? ' annual' : '');
+
+  document.getElementById('label-monthly').className = 'toggle-label' + (isAnnual ? '' : ' on');
+  document.getElementById('label-annual').className = 'toggle-label' + (isAnnual ? ' on' : '');
+
+  var priceEl = document.getElementById('pro-price');
+  if (priceEl) priceEl.textContent = isAnnual ? '7' : '12';
+}
+
+function choosePlan(plan) {
+  selectedPlan = plan;
+  goTo('screen-auth');
+}
+
+// ─── AUTH ────────────────────────────────────────────────────
+
+function switchTab(mode) {
+  authMode = mode;
+  var isSignup = mode === 'signup';
+
+  document.getElementById('tab-signup').className = 'auth-tab' + (isSignup ? ' active' : '');
+  document.getElementById('tab-login').className = 'auth-tab' + (!isSignup ? ' active' : '');
+
+  document.getElementById('field-name').style.display = isSignup ? '' : 'none';
+  document.getElementById('auth-title').innerHTML = isSignup ? 'Create your<br><em>account</em>' : 'Welcome<br><em>back</em>';
+  document.getElementById('auth-sub').textContent = isSignup
+    ? 'Join thousands building a daily wellness practice.'
+    : 'Sign in to continue your practice.';
+  document.getElementById('auth-submit-btn').textContent = isSignup ? 'Create Account' : 'Log In';
+  document.getElementById('input-password').setAttribute('autocomplete', isSignup ? 'new-password' : 'current-password');
+}
+
+function authSubmit() {
+  var name  = (document.getElementById('input-name').value || '').trim();
+  var email = (document.getElementById('input-email').value || '').trim();
+
+  if (!email) { document.getElementById('input-email').focus(); return; }
+
+  var displayName = name || email.split('@')[0];
+  var user = { name: displayName, email: email, plan: selectedPlan };
+
+  saveUser(user);
+  applyUserToProfile(user);
+  switchToApp('screen-home');
+}
+
+function continueAsGuest() {
+  var user = { name: 'Guest', email: 'guest@namaste.app', plan: 'free' };
+  saveUser(user);
+  applyUserToProfile(user);
+  switchToApp('screen-home');
+}
+
+// ─── PROFILE ────────────────────────────────────────────────
+
+function applyUserToProfile(user) {
+  var initial = (user.name || 'G').charAt(0).toUpperCase();
+  document.getElementById('profile-avatar').textContent = initial;
+  document.getElementById('profile-display-name').textContent = user.name || 'Welcome';
+  document.getElementById('profile-display-email').textContent = user.email || '';
+
+  var isPro = user.plan === 'pro';
+  var badge = document.getElementById('profile-plan-badge');
+  badge.textContent = isPro ? '✦ Pro Plan' : '✦ Free Plan';
+  badge.className = 'profile-plan-badge' + (isPro ? ' pro' : '');
+
+  document.getElementById('profile-plan-label').textContent = isPro ? 'Pro' : 'Free';
+
+  var upgradeCard = document.getElementById('upgrade-card');
+  if (upgradeCard) upgradeCard.style.display = isPro ? 'none' : 'flex';
+}
+
+function logout() {
+  localStorage.removeItem('namaste_user');
+  onboardStep = 0;
+  var slides = document.getElementById('onboard-slides');
+  if (slides) slides.style.transform = 'translateX(0)';
+  updateDots();
+  switchToApp('screen-onboarding');
+  document.querySelector('.bottom-nav').style.display = 'none';
+  currentScreen = 'screen-onboarding';
+}
+
+// ─── LOCALSTORAGE ────────────────────────────────────────────
+
+function saveUser(user) {
+  try { localStorage.setItem('namaste_user', JSON.stringify(user)); } catch(e) {}
+}
+
+function loadUser() {
+  try {
+    var raw = localStorage.getItem('namaste_user');
+    return raw ? JSON.parse(raw) : null;
+  } catch(e) { return null; }
+}
 </script>
 
 <script>
