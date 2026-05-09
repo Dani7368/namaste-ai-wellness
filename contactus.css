@@ -1,0 +1,131 @@
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: #cecac6;
+ }
+ 
+ .top-container{
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    justify-content:space-between;
+    height: 32px;
+    border: 1px solid black;
+}
+
+ 
+ .logo{
+     display: flex;
+ }
+ 
+ .logo img{
+     margin-top: 14px;
+ }
+ 
+ a{
+     text-decoration: none;
+     color: white;
+     padding: 0 12px;
+ }
+ 
+ a:hover {
+     color:rgb(204, 162, 162);
+ }
+ 
+ .contact-us{
+    width: 100%;
+    height: 480px;
+    color: rgb(0, 0, 0);
+}
+
+.contact-us h1{
+    font-size: 48px;
+    font-weight: lighter;
+    padding-left: 48px; 
+    padding-top:   28px;
+    height: 15%;
+    display: block;
+}
+
+.info{
+    border: 1px solid black;
+    border-top: 2px solid black;
+    height: 30%;
+    display: flex;
+}
+
+.info div{
+    border: 1px solid black;
+    width: 25%;
+    border-bottom: 0px;
+    border-top: 0px;
+    border-left: 0px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+
+.email{
+    border-bottom: 2px solid black;  
+    display: flex;    
+    height: 42%;
+}
+
+.div1{
+    width: 25%;
+    border-right: 2px solid black;
+    border-left: 1px solid black;
+}
+
+.div2{
+    border-right: 1px solid black;
+    width: 75%;
+}
+
+.div2 p {
+    padding-left: 56px;
+
+}
+
+.div2 :nth-child(odd){
+    font-size: 26px;
+}
+
+.div2 :nth-child(even){
+    font-size: 18px;
+}
+
+#btn1{
+    font-size: 16px ;
+}
+
+#btn1:hover {
+    color:rgb(0, 0, 0);
+    background-color: white;
+}
+
+.box {
+    padding-left: 56px;
+    padding-top: 12px;
+}
+
+input[type="text"] {
+    width: 50%;
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-size: 16px;
+    transition: border 0.3s; 
+}
+
+button[type=submit]{
+    background-color: black;
+    color: white;
+    padding: 10px; 
+    border-radius: 4px; 
+    text-transform: uppercase;
+}

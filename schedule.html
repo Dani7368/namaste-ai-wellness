@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule — Namaste Wellness Studio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══════════════════════════════════════════════════ -->
+<nav class="navbar navbar-warm">
+  <a href="home.html" class="nav-logo">
+    <img src="images/newlogo.png" alt="Namaste">
+    <span>Namaste</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="classes.html">Classes</a></li>
+    <li><a href="teachers.html">Teachers</a></li>
+    <li><a href="schedule.html" class="active">Schedule</a></li>
+    <li><a href="booking.html" class="nav-book">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ PAGE HERO ════════════════════════════════════════════════ -->
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('images/pic7.jpg')"></div>
+  <div class="page-hero-content">
+    <span class="eyebrow">Plan Your Week</span>
+    <h1>The <em>Schedule</em></h1>
+  </div>
+</div>
+
+<!-- ═══ SCHEDULE SECTION ══════════════════════════════════════════ -->
+<section class="section" style="background:var(--bone)">
+  <div class="section-header reveal" style="margin-bottom:64px">
+    <span class="eyebrow">This Week</span>
+    <h2 class="display-title">Find Your <em>Perfect Class</em></h2>
+    <p class="body-text">Select a day to browse available sessions. All times are in EST. Arrive 10 minutes early to settle in.</p>
+  </div>
+
+  <div class="schedule-tabs reveal">
+    <button class="sch-tab active" onclick="showDay('monday',this)">Monday</button>
+    <button class="sch-tab" onclick="showDay('tuesday',this)">Tuesday</button>
+    <button class="sch-tab" onclick="showDay('wednesday',this)">Wednesday</button>
+    <button class="sch-tab" onclick="showDay('thursday',this)">Thursday</button>
+    <button class="sch-tab" onclick="showDay('friday',this)">Friday</button>
+    <button class="sch-tab" onclick="showDay('saturday',this)">Saturday</button>
+    <button class="sch-tab" onclick="showDay('sunday',this)">Sunday</button>
+  </div>
+
+  <!-- Monday -->
+  <div class="sch-day active" id="day-monday">
+    <div class="sch-row">
+      <div class="sch-time">09:00</div>
+      <div class="sch-info"><h4>Vinyasa Flow</h4><p>Sophia Blair · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">11:00</div>
+      <div class="sch-info"><h4>Pilates</h4><p>Liv Cowen · Studio B</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">14:00</div>
+      <div class="sch-info"><h4>Vinyasa Flow</h4><p>Sophia Blair · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">17:00</div>
+      <div class="sch-info"><h4>Ashtanga</h4><p>Ella Smith · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">19:00</div>
+      <div class="sch-info"><h4>Pilates</h4><p>Liv Cowen · Studio B</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+  </div>
+
+  <!-- Tuesday -->
+  <div class="sch-day" id="day-tuesday">
+    <div class="sch-row">
+      <div class="sch-time">08:30</div>
+      <div class="sch-info"><h4>Ashtanga</h4><p>Ella Smith · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">10:30</div>
+      <div class="sch-info"><h4>Ashtanga</h4><p>Ella Smith · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">14:30</div>
+      <div class="sch-info"><h4>Pilates</h4><p>Liv Cowen · Studio B</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">17:30</div>
+      <div class="sch-info"><h4>Vinyasa Flow</h4><p>Sophia Blair · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">20:30</div>
+      <div class="sch-info"><h4>Power Yoga</h4><p>Ral Mahajan · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+  </div>
+
+  <!-- Wednesday -->
+  <div class="sch-day" id="day-wednesday">
+    <div class="sch-row">
+      <div class="sch-time">08:00</div>
+      <div class="sch-info"><h4>Vinyasa Flow</h4><p>Sophia Blair · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">11:00</div>
+      <div class="sch-info"><h4>Flexibility</h4><p>Linda Walker · Studio B</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">14:00</div>
+      <div class="sch-info"><h4>Yoga for Beginners</h4><p>Rob Clark · Studio B</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">16:00</div>
+      <div class="sch-info"><h4>Flexibility</h4><p>Linda Walker · Studio B</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">18:30</div>
+      <div class="sch-info"><h4>Vinyasa Flow</h4><p>Sophia Blair · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+  </div>
+
+  <!-- Thursday -->
+  <div class="sch-day" id="day-thursday">
+    <div class="sch-row">
+      <div class="sch-time">09:30</div>
+      <div class="sch-info"><h4>Pilates</h4><p>Liv Cowen · Studio B</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">12:30</div>
+      <div class="sch-info"><h4>Ashtanga</h4><p>Ella Smith · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">15:00</div>
+      <div class="sch-info"><h4>Flexibility</h4><p>Linda Walker · Studio B</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">17:30</div>
+      <div class="sch-info"><h4>Power Yoga</h4><p>Ral Mahajan · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">20:30</div>
+      <div class="sch-info"><h4>Power Yoga</h4><p>Ral Mahajan · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+  </div>
+
+  <!-- Friday -->
+  <div class="sch-day" id="day-friday">
+    <div class="sch-row">
+      <div class="sch-time">07:00</div>
+      <div class="sch-info"><h4>Ashtanga</h4><p>Ella Smith · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">09:00</div>
+      <div class="sch-info"><h4>Yoga for Beginners</h4><p>Rob Clark · Studio B</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">13:00</div>
+      <div class="sch-info"><h4>Vinyasa Flow</h4><p>Sophia Blair · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">15:30</div>
+      <div class="sch-info"><h4>Ashtanga</h4><p>Ella Smith · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">20:00</div>
+      <div class="sch-info"><h4>Flexibility</h4><p>Linda Walker · Studio B</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+  </div>
+
+  <!-- Saturday -->
+  <div class="sch-day" id="day-saturday">
+    <div class="sch-row">
+      <div class="sch-time">10:00</div>
+      <div class="sch-info"><h4>Vinyasa Flow</h4><p>Sophia Blair · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">12:00</div>
+      <div class="sch-info"><h4>Vinyasa Flow</h4><p>Sophia Blair · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">14:00</div>
+      <div class="sch-info"><h4>Power Yoga</h4><p>Ral Mahajan · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">17:00</div>
+      <div class="sch-info"><h4>Ashtanga</h4><p>Ella Smith · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">21:00</div>
+      <div class="sch-info"><h4>Yoga for Beginners</h4><p>Rob Clark · Studio B</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+  </div>
+
+  <!-- Sunday -->
+  <div class="sch-day" id="day-sunday">
+    <div class="sch-row">
+      <div class="sch-time">08:00</div>
+      <div class="sch-info"><h4>Flexibility</h4><p>Linda Walker · Studio B</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">10:30</div>
+      <div class="sch-info"><h4>Vinyasa Flow</h4><p>Sophia Blair · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">13:00</div>
+      <div class="sch-info"><h4>Ashtanga</h4><p>Ella Smith · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">16:00</div>
+      <div class="sch-info"><h4>Pilates</h4><p>Liv Cowen · Studio B</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+    <div class="sch-row">
+      <div class="sch-time">19:00</div>
+      <div class="sch-info"><h4>Ashtanga</h4><p>Ella Smith · Studio A</p></div>
+      <a href="booking.html" class="sch-book">Reserve</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INFO STRIP ════════════════════════════════════════════════ -->
+<section style="background:var(--putty);padding:80px 72px" class="reveal">
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:56px;flex-wrap:wrap">
+    <div>
+      <span class="eyebrow">Studio Hours</span>
+      <p style="font-family:var(--serif);font-size:18px;font-weight:300;color:var(--espresso);line-height:1.9">
+        Mon – Fri<br>6:30 am – 9:30 pm<br><br>Sat – Sun<br>8:00 am – 8:00 pm
+      </p>
+    </div>
+    <div>
+      <span class="eyebrow">Booking Policy</span>
+      <p style="font-size:14px;font-weight:300;color:var(--earth);line-height:1.85">
+        Classes can be reserved up to 7 days in advance. Cancellations made within 2 hours of class may incur a small late-cancel fee.
+      </p>
+    </div>
+    <div>
+      <span class="eyebrow">Arrive Early</span>
+      <p style="font-size:14px;font-weight:300;color:var(--earth);line-height:1.85">
+        We recommend arriving 10 minutes before class to settle in, set up your mat, and centre yourself before the practice begins.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="home.html" class="nav-logo"><img src="images/newlogo.png" alt="Namaste"><span>Namaste</span></a>
+      <p class="footer-tagline">A sanctuary for mind, body, and spirit — where every breath is a homecoming.</p>
+      <div class="footer-social"><a href="#">☽</a><a href="#">✦</a><a href="#">◎</a></div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="classes.html">Our Classes</a></li>
+        <li><a href="teachers.html">Teachers</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="booking.html">Book a Class</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>1234-5678-90<br>info@namastestudio.com<br><br>Washington, D.C.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Newsletter</h4>
+      <p style="color:rgba(196,179,154,0.5);font-size:13px;font-weight:300">Wellness rituals and sacred invitations.</p>
+      <div class="footer-newsletter-row"><input type="email" placeholder="your@email.com"><button>Join</button></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Namaste Wellness Studio. All rights reserved.</p>
+    <p>Crafted with intention.</p>
+  </div>
+</footer>
+
+<script>
+  function showDay(day, btn) {
+    document.querySelectorAll('.sch-day').forEach(d => d.classList.remove('active'));
+    document.querySelectorAll('.sch-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('day-' + day).classList.add('active');
+    btn.classList.add('active');
+  }
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

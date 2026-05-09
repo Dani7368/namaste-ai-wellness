@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Class — Namaste Wellness Studio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══════════════════════════════════════════════════ -->
+<nav class="navbar navbar-warm">
+  <a href="home.html" class="nav-logo">
+    <img src="images/newlogo.png" alt="Namaste">
+    <span>Namaste</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="classes.html">Classes</a></li>
+    <li><a href="teachers.html">Teachers</a></li>
+    <li><a href="schedule.html">Schedule</a></li>
+    <li><a href="booking.html" class="nav-book active">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ PAGE HERO ════════════════════════════════════════════════ -->
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('images/tea.jpg')"></div>
+  <div class="page-hero-content">
+    <span class="eyebrow">Reserve Your Space</span>
+    <h1>Book a <em>Class</em></h1>
+  </div>
+</div>
+
+<!-- ═══ BOOKING SECTION ══════════════════════════════════════════ -->
+<section class="section" style="background:var(--bone)">
+  <div class="booking-layout">
+
+    <!-- Form -->
+    <div class="reveal">
+      <span class="eyebrow">Your Details</span>
+      <h2 class="display-title" style="margin-bottom:12px">Reserve Your<br><em>Place</em></h2>
+      <div class="divider" style="margin-bottom:44px"></div>
+      <p class="body-text" style="margin-bottom:48px">Fill in your details and we'll confirm your booking by email within 24 hours.</p>
+
+      <form class="booking-form" id="booking-form" onsubmit="submitBooking(event)" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input class="form-input" type="text" id="fname" placeholder="Sophia" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input class="form-input" type="text" id="lname" placeholder="Blair" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input class="form-input" type="email" id="email" placeholder="you@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input class="form-input" type="tel" placeholder="+1 (555) 000-0000">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Choose a Class</label>
+          <select class="form-input form-select" id="class-select" required>
+            <option value="" disabled selected>Select your class</option>
+            <option>Vinyasa Flow</option>
+            <option>Yoga for Beginners</option>
+            <option>Power Yoga</option>
+            <option>Ashtanga</option>
+            <option>Pilates</option>
+            <option>Flexibility</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Preferred Day</label>
+            <select class="form-input form-select">
+              <option value="" disabled selected>Day</option>
+              <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
+              <option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Preferred Time</label>
+            <select class="form-input form-select">
+              <option value="" disabled selected>Time</option>
+              <option>Morning (7:00 – 11:00)</option>
+              <option>Midday (11:00 – 14:00)</option>
+              <option>Afternoon (14:00 – 17:00)</option>
+              <option>Evening (17:00 – 21:00)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Your Experience Level</label>
+          <select class="form-input form-select">
+            <option value="" disabled selected>Level</option>
+            <option>Complete Beginner</option>
+            <option>Some Experience</option>
+            <option>Regular Practitioner</option>
+            <option>Advanced</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Anything You'd Like Us to Know</label>
+          <textarea class="form-input form-textarea" placeholder="Injuries, intentions, questions — share anything that will help us prepare for you…"></textarea>
+        </div>
+
+        <div id="form-error" style="display:none;font-size:13px;color:var(--espresso);padding:14px 18px;background:rgba(91,76,58,0.07);border-left:2px solid var(--mushroom);font-weight:300">
+          Please fill in your name, email, and class selection.
+        </div>
+
+        <button type="submit" class="btn btn-espresso" style="width:100%;justify-content:center;padding:18px 36px">
+          Confirm My Booking
+        </button>
+
+        <p style="font-size:12px;font-weight:300;color:var(--mushroom);text-align:center;line-height:1.75;margin-top:4px">
+          By booking you agree to our cancellation policy. We'll confirm your spot by email within 24 hours.
+        </p>
+      </form>
+    </div>
+
+    <!-- Info -->
+    <div class="booking-info reveal reveal-delay-1">
+      <span class="eyebrow">What to Expect</span>
+      <h3>Your First <em>Visit</em></h3>
+
+      <div class="booking-detail">
+        <div class="booking-detail-icon">◎</div>
+        <div>
+          <h4>Studio Location</h4>
+          <p>Namaste Wellness Studio<br>Washington, D.C.<br>Free parking available on-site.</p>
+        </div>
+      </div>
+
+      <div class="booking-detail">
+        <div class="booking-detail-icon">✦</div>
+        <div>
+          <h4>Arrive Early</h4>
+          <p>We recommend arriving 10–15 minutes before your class to settle in, set up your mat, and meet your teacher.</p>
+        </div>
+      </div>
+
+      <div class="booking-detail">
+        <div class="booking-detail-icon">☽</div>
+        <div>
+          <h4>What to Bring</h4>
+          <p>Comfortable clothing and a water bottle. Mats, blocks, and straps are available in the studio — just bring yourself.</p>
+        </div>
+      </div>
+
+      <div class="booking-detail">
+        <div class="booking-detail-icon">⬡</div>
+        <div>
+          <h4>Cancellation</h4>
+          <p>Cancellations made more than 2 hours before class receive a full refund. Late cancellations may incur a small fee.</p>
+        </div>
+      </div>
+
+      <div class="booking-detail" style="border:none">
+        <div class="booking-detail-icon">—</div>
+        <div>
+          <h4>Questions?</h4>
+          <p>1234-5678-90<br>info@namastestudio.com</p>
+        </div>
+      </div>
+
+      <!-- Pricing -->
+      <div class="booking-price-strip">
+        <span class="eyebrow" style="margin-bottom:4px">Pricing</span>
+        <div class="booking-price-row">
+          <span class="booking-price-label">Single Drop-In</span>
+          <span class="booking-price-val">$25</span>
+        </div>
+        <div class="booking-price-row">
+          <span class="booking-price-label">Monthly Unlimited</span>
+          <span class="booking-price-val">$89</span>
+        </div>
+        <div class="booking-price-row" style="border:none">
+          <span class="booking-price-label">Weekend Retreat</span>
+          <span class="booking-price-val">$320</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="home.html" class="nav-logo"><img src="images/newlogo.png" alt="Namaste"><span>Namaste</span></a>
+      <p class="footer-tagline">A sanctuary for mind, body, and spirit — where every breath is a homecoming.</p>
+      <div class="footer-social"><a href="#">☽</a><a href="#">✦</a><a href="#">◎</a></div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="classes.html">Our Classes</a></li>
+        <li><a href="teachers.html">Teachers</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="booking.html">Book a Class</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>1234-5678-90<br>info@namastestudio.com<br><br>Washington, D.C.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Newsletter</h4>
+      <p style="color:rgba(196,179,154,0.5);font-size:13px;font-weight:300">Wellness rituals and sacred invitations.</p>
+      <div class="footer-newsletter-row"><input type="email" placeholder="your@email.com"><button>Join</button></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Namaste Wellness Studio. All rights reserved.</p>
+    <p>Crafted with intention.</p>
+  </div>
+</footer>
+
+<!-- ═══ SUCCESS MODAL ══════════════════════════════════════════════ -->
+<div class="modal-wrap" id="modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-icon">✦</div>
+    <h2>You're in.</h2>
+    <p>Thank you for choosing Namaste. We've received your booking and will confirm everything by email within 24 hours. We cannot wait to welcome you.</p>
+    <a href="home.html" class="btn btn-espresso" style="width:100%;justify-content:center">Return Home</a>
+    <br>
+    <a href="schedule.html" class="btn btn-outline-espresso" style="width:100%;justify-content:center;margin-top:10px">View Schedule</a>
+  </div>
+</div>
+
+<script>
+  function submitBooking(e) {
+    e.preventDefault();
+    const err   = document.getElementById('form-error');
+    const fname = document.getElementById('fname').value.trim();
+    const lname = document.getElementById('lname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const cls   = document.getElementById('class-select').value;
+    if (!fname || !lname || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !cls) {
+      err.style.display = 'block';
+      return;
+    }
+    err.style.display = 'none';
+    document.getElementById('modal').classList.add('open');
+  }
+  function closeModal() { document.getElementById('modal').classList.remove('open'); }
+  document.getElementById('modal').addEventListener('click', e => { if (e.target === document.getElementById('modal')) closeModal(); });
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

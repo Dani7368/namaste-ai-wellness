@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Namaste — AI Wellness</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#5B4C3A" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <!-- iOS PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Namaste" />
+  <link rel="apple-touch-icon" href="images/newlogo.png" />
+  <link rel="apple-touch-startup-image" href="images/pexels-polina-kovaleva-6019787.jpg" />
+
+  <!-- Meta -->
+  <meta name="description" content="AI-powered personalized yoga and wellness rituals" />
+  <meta name="application-name" content="Namaste" />
+
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- ═══════════════════════════════════════════════
+       SCREEN: HOME
+  ════════════════════════════════════════════════ -->
+  <div class="screen screen-home active" id="screen-home">
+
+    <!-- Hero image -->
+    <div class="home-hero">
+      <img class="home-hero-img" src="images/pexels-polina-kovaleva-6019787.jpg" alt="Yoga practice" />
+      <div class="home-hero-overlay"></div>
+      <div class="home-hero-text">
+        <p class="home-hero-eyebrow">AI Wellness · Personalized</p>
+        <h1 class="home-hero-title">Your ritual,<br><em>designed by AI</em></h1>
+        <p class="home-hero-sub">Movement · Breath · Meditation</p>
+      </div>
+    </div>
+
+    <!-- Body content -->
+    <div class="home-body">
+
+      <!-- AI Generator card -->
+      <div class="ai-card" onclick="goTo('screen-generator')">
+        <p class="ai-card-label">AI Ritual Generator</p>
+        <h2 class="ai-card-title">How do you feel<br><em>right now?</em></h2>
+        <button class="ai-card-btn">
+          <span class="star">✦</span>
+          <span>Start with AI</span>
+        </button>
+      </div>
+
+      <!-- Quick access -->
+      <div class="section-header">
+        <h3 class="section-title">Quick Practices</h3>
+        <span class="section-link" onclick="goTo('screen-explore')">See all</span>
+      </div>
+      <div class="quick-row">
+        <div class="quick-card" onclick="loadQuick('morning')">
+          <img src="images/pic1.jpg" alt="Morning flow" />
+          <div class="quick-card-overlay"></div>
+          <span class="quick-card-name">Morning Flow</span>
+        </div>
+        <div class="quick-card" onclick="loadQuick('breathwork')">
+          <img src="images/pic7.jpg" alt="Breathwork" />
+          <div class="quick-card-overlay"></div>
+          <span class="quick-card-name">Breathwork</span>
+        </div>
+        <div class="quick-card" onclick="loadQuick('yin')">
+          <img src="images/tea.jpg" alt="Yin and restore" />
+          <div class="quick-card-overlay"></div>
+          <span class="quick-card-name">Yin &amp; Restore</span>
+        </div>
+        <div class="quick-card" onclick="loadQuick('sleep')">
+          <img src="images/pic6.jpg" alt="Sleep ritual" />
+          <div class="quick-card-overlay"></div>
+          <span class="quick-card-name">Sleep Ritual</span>
+        </div>
+      </div>
+
+      <!-- Daily pick -->
+      <div class="section-header">
+        <h3 class="section-title">Today's Pick</h3>
+      </div>
+      <div class="daily-card">
+        <img class="daily-card-img" src="images/urdamuka.jpg" alt="Today's practice" />
+        <div class="daily-card-meta">
+          <p class="daily-label">Daily Ritual</p>
+          <p class="daily-title">Grounding Flow</p>
+          <p class="daily-sub">20 min · Intermediate</p>
+        </div>
+        <button class="daily-play-btn" onclick="loadQuick('morning')">
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SCREEN: AI GENERATOR
+  ════════════════════════════════════════════════ -->
+  <div class="screen screen-generator" id="screen-generator">
+
+    <div class="gen-header">
+      <button class="gen-back" onclick="goTo('screen-home')">
+        <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+        Back
+      </button>
+      <p class="gen-eyebrow">AI Ritual Generator</p>
+      <h2 class="gen-title">Tell me how<br><em>you feel</em></h2>
+    </div>
+
+    <!-- Mood -->
+    <div class="gen-section">
+      <p class="gen-section-label">My mood is</p>
+      <div class="chip-grid">
+        <button class="chip" onclick="genPick('mood','anxious',this)">Anxious</button>
+        <button class="chip" onclick="genPick('mood','depleted',this)">Depleted</button>
+        <button class="chip" onclick="genPick('mood','restless',this)">Restless</button>
+        <button class="chip" onclick="genPick('mood','calm',this)">Calm</button>
+      </div>
+    </div>
+
+    <div class="gen-divider"></div>
+
+    <!-- Energy -->
+    <div class="gen-section">
+      <p class="gen-section-label">My energy level</p>
+      <div class="chip-grid">
+        <button class="chip" onclick="genPick('energy','low',this)">Low</button>
+        <button class="chip" onclick="genPick('energy','moderate',this)">Moderate</button>
+        <button class="chip" onclick="genPick('energy','high',this)">High</button>
+      </div>
+    </div>
+
+    <div class="gen-divider"></div>
+
+    <!-- Time -->
+    <div class="gen-section">
+      <p class="gen-section-label">I have</p>
+      <div class="chip-grid">
+        <button class="chip" onclick="genPick('time','10',this)">10 min</button>
+        <button class="chip" onclick="genPick('time','20',this)">20 min</button>
+        <button class="chip" onclick="genPick('time','30',this)">30 min</button>
+        <button class="chip" onclick="genPick('time','60',this)">60 min</button>
+      </div>
+    </div>
+
+    <div class="gen-divider"></div>
+
+    <!-- Goal -->
+    <div class="gen-section">
+      <p class="gen-section-label">My intention is to</p>
+      <div class="chip-grid">
+        <button class="chip" onclick="genPick('goal','restore',this)">Restore</button>
+        <button class="chip" onclick="genPick('goal','release',this)">Release</button>
+        <button class="chip" onclick="genPick('goal','strengthen',this)">Strengthen</button>
+        <button class="chip" onclick="genPick('goal','transcend',this)">Transcend</button>
+      </div>
+    </div>
+
+    <div class="gen-footer">
+      <button class="gen-btn" id="gen-btn" disabled onclick="generateRitual()">
+        <span class="star">✦</span>
+        <span class="btn-text">Generate My Ritual</span>
+      </button>
+    </div>
+
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SCREEN: AI RESULT
+  ════════════════════════════════════════════════ -->
+  <div class="screen screen-result" id="screen-result">
+
+    <div class="result-header">
+      <button class="result-back" onclick="goTo('screen-generator')">
+        <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+        Regenerate
+      </button>
+    </div>
+
+    <!-- Summary card -->
+    <div class="result-summary">
+      <p class="result-summary-label">Your AI Ritual</p>
+      <h2 class="result-summary-name" id="result-name">Restorative Yin Flow</h2>
+      <div class="result-tags" id="result-tags"></div>
+      <p class="result-summary-desc" id="result-desc">A gentle practice to dissolve tension and return you to stillness.</p>
+    </div>
+
+    <!-- Flow steps -->
+    <div class="result-flow">
+      <h3 class="result-flow-title">Your Practice</h3>
+      <div id="result-flow-steps"></div>
+    </div>
+
+    <!-- Guide -->
+    <div class="result-guide">
+      <img class="result-guide-img" id="result-guide-img" src="teachersimages/linda.jpeg" alt="Guide" />
+      <div>
+        <p class="result-guide-label">Recommended Guide</p>
+        <p class="result-guide-name" id="result-guide-name">Linda Walker</p>
+        <p class="result-guide-role" id="result-guide-role">Yin · Restorative</p>
+      </div>
+    </div>
+
+    <div class="result-footer">
+      <button class="start-btn" onclick="startRitual()">Begin Practice</button>
+    </div>
+
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SCREEN: PLAYER
+  ════════════════════════════════════════════════ -->
+  <div class="screen screen-player" id="screen-player">
+
+    <div class="player-header">
+      <button class="player-back" onclick="goTo('screen-result')">
+        <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+        Back
+      </button>
+      <button class="player-menu-btn">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+      </button>
+    </div>
+
+    <!-- Now playing image -->
+    <div class="player-img-wrap">
+      <img class="player-img" id="player-img" src="images/pic1.jpg" alt="Current practice" />
+    </div>
+
+    <!-- Track info -->
+    <div class="player-info">
+      <p class="player-step-label" id="player-step-label">Step 1 of 5</p>
+      <h3 class="player-step-name" id="player-step-name">Centering Breath</h3>
+      <p class="player-step-dur" id="player-step-dur">3 min</p>
+    </div>
+
+    <!-- Progress -->
+    <div class="player-progress">
+      <div class="progress-bar">
+        <div class="progress-fill" id="player-progress" style="width: 0%"></div>
+      </div>
+      <div class="progress-times">
+        <span id="player-time-cur">0:00</span>
+        <span id="player-time-total">3:00</span>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="player-controls">
+      <button class="ctrl-btn sm" onclick="prevStep()" title="Previous">
+        <svg viewBox="0 0 24 24"><polygon points="19,20 9,12 19,4"/><line x1="5" y1="19" x2="5" y2="5"/></svg>
+      </button>
+      <button class="ctrl-play" id="player-play-btn" onclick="togglePlay()">
+        <svg id="play-icon" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+      <button class="ctrl-btn sm" onclick="nextStep()" title="Next">
+        <svg viewBox="0 0 24 24"><polygon points="5,4 15,12 5,20"/><line x1="19" y1="5" x2="19" y2="19"/></svg>
+      </button>
+    </div>
+
+    <!-- Up next -->
+    <div class="player-upnext">
+      <p class="upnext-label">Up Next</p>
+      <div id="upnext-list"></div>
+    </div>
+
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SCREEN: EXPLORE
+  ════════════════════════════════════════════════ -->
+  <div class="screen screen-explore" id="screen-explore">
+
+    <div class="explore-header">
+      <h2 class="explore-title">Explore</h2>
+      <div class="search-bar">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search practices, teachers…" />
+      </div>
+    </div>
+
+    <!-- Filter chips -->
+    <div class="explore-chips">
+      <button class="filter-chip active">All</button>
+      <button class="filter-chip">Yoga</button>
+      <button class="filter-chip">Breathwork</button>
+      <button class="filter-chip">Meditation</button>
+      <button class="filter-chip">Sound</button>
+    </div>
+
+    <!-- AI picks -->
+    <div class="explore-ai-row">
+      <h3 class="explore-section-title">AI Picks for You</h3>
+      <div class="ai-pick-cards">
+        <div class="ai-pick-card" onclick="loadQuick('morning')">
+          <img src="images/pic1.jpg" alt="Morning Vinyasa" />
+          <div class="ai-pick-card-overlay"></div>
+          <div class="ai-pick-card-info">
+            <p class="ai-pick-card-name">Morning Vinyasa</p>
+            <p class="ai-pick-card-dur">20 min</p>
+          </div>
+        </div>
+        <div class="ai-pick-card" onclick="loadQuick('breathwork')">
+          <img src="images/pic7.jpg" alt="Box Breathing" />
+          <div class="ai-pick-card-overlay"></div>
+          <div class="ai-pick-card-info">
+            <p class="ai-pick-card-name">Box Breathing</p>
+            <p class="ai-pick-card-dur">10 min</p>
+          </div>
+        </div>
+        <div class="ai-pick-card" onclick="loadQuick('yin')">
+          <img src="images/tea.jpg" alt="Yin Restore" />
+          <div class="ai-pick-card-overlay"></div>
+          <div class="ai-pick-card-info">
+            <p class="ai-pick-card-name">Yin Restore</p>
+            <p class="ai-pick-card-dur">30 min</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collections -->
+    <div class="explore-collections">
+      <h3 class="explore-section-title">Collections</h3>
+      <div class="collections-grid">
+        <div class="collection-card" onclick="loadQuick('morning')">
+          <img src="images/yogastudio.jpeg" alt="Morning Rituals" />
+          <div class="collection-card-overlay"></div>
+          <span class="collection-card-name">Morning Rituals</span>
+        </div>
+        <div class="collection-card" onclick="loadQuick('sleep')">
+          <img src="images/pic6.jpg" alt="Sleep and Rest" />
+          <div class="collection-card-overlay"></div>
+          <span class="collection-card-name">Sleep &amp; Rest</span>
+        </div>
+        <div class="collection-card" onclick="loadQuick('breathwork')">
+          <img src="images/pic7.jpg" alt="Breathwork Series" />
+          <div class="collection-card-overlay"></div>
+          <span class="collection-card-name">Breathwork</span>
+        </div>
+        <div class="collection-card" onclick="loadQuick('yin')">
+          <img src="images/tea.jpg" alt="Yin and Restore" />
+          <div class="collection-card-overlay"></div>
+          <span class="collection-card-name">Yin &amp; Restore</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Browse list -->
+    <div class="explore-browse">
+      <h3 class="explore-section-title" style="margin-bottom:14px">Browse All</h3>
+      <div class="browse-item" onclick="loadQuick('morning')">
+        <img class="browse-img" src="images/urdamuka.jpg" alt="Grounding Flow" />
+        <div class="browse-info">
+          <p class="browse-category">Yoga</p>
+          <p class="browse-name">Grounding Flow</p>
+          <p class="browse-meta">20 min · Intermediate</p>
+        </div>
+        <span class="browse-arrow"><svg viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg></span>
+      </div>
+      <div class="browse-item" onclick="loadQuick('breathwork')">
+        <img class="browse-img" src="images/pic7.jpg" alt="Pranayama Reset" />
+        <div class="browse-info">
+          <p class="browse-category">Breathwork</p>
+          <p class="browse-name">Pranayama Reset</p>
+          <p class="browse-meta">12 min · All levels</p>
+        </div>
+        <span class="browse-arrow"><svg viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg></span>
+      </div>
+      <div class="browse-item" onclick="loadQuick('sleep')">
+        <img class="browse-img" src="images/pic6.jpg" alt="Deep Sleep Yoga Nidra" />
+        <div class="browse-info">
+          <p class="browse-category">Meditation</p>
+          <p class="browse-name">Deep Sleep Yoga Nidra</p>
+          <p class="browse-meta">35 min · Relaxing</p>
+        </div>
+        <span class="browse-arrow"><svg viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg></span>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SCREEN: GUIDES
+  ════════════════════════════════════════════════ -->
+  <div class="screen screen-guides" id="screen-guides">
+
+    <div class="guides-header">
+      <h2 class="guides-title">Your<br><em>Guides</em></h2>
+      <p class="guides-sub">Expert teachers, curated for your practice</p>
+    </div>
+
+    <div class="guides-list">
+
+      <div class="guide-card">
+        <div class="guide-card-top">
+          <img class="guide-card-img" src="teachersimages/linda.jpeg" alt="Linda Walker" />
+          <div class="guide-card-info">
+            <p class="guide-card-name">Linda Walker</p>
+            <p class="guide-card-role">Yin · Restorative · Meditation</p>
+            <div class="guide-card-tags">
+              <span class="guide-tag">Stress Relief</span>
+              <span class="guide-tag">Flexibility</span>
+            </div>
+          </div>
+          <button class="guide-bookmark">
+            <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+        </div>
+        <p class="guide-card-bio">Specializes in deep tissue release and mindful movement for nervous system restoration.</p>
+        <div class="guide-card-footer">
+          <div class="guide-stats">
+            <div class="guide-stat"><strong>4.9</strong> Rating</div>
+            <div class="guide-stat"><strong>38</strong> Classes</div>
+          </div>
+          <button class="guide-follow-btn">Follow</button>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-card-top">
+          <img class="guide-card-img" src="teachersimages/sophia.jpeg" alt="Sophia Chen" />
+          <div class="guide-card-info">
+            <p class="guide-card-name">Sophia Chen</p>
+            <p class="guide-card-role">Vinyasa · Power · Core</p>
+            <div class="guide-card-tags">
+              <span class="guide-tag">Strength</span>
+              <span class="guide-tag">Flow</span>
+            </div>
+          </div>
+          <button class="guide-bookmark">
+            <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+        </div>
+        <p class="guide-card-bio">Dynamic vinyasa flows that build strength, focus and a deep mind-body connection.</p>
+        <div class="guide-card-footer">
+          <div class="guide-stats">
+            <div class="guide-stat"><strong>4.8</strong> Rating</div>
+            <div class="guide-stat"><strong>52</strong> Classes</div>
+          </div>
+          <button class="guide-follow-btn">Follow</button>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-card-top">
+          <img class="guide-card-img" src="teachersimages/rob.jpeg" alt="Robert Maes" />
+          <div class="guide-card-info">
+            <p class="guide-card-name">Robert Maes</p>
+            <p class="guide-card-role">Ashtanga · Pranayama</p>
+            <div class="guide-card-tags">
+              <span class="guide-tag">Breathwork</span>
+              <span class="guide-tag">Discipline</span>
+            </div>
+          </div>
+          <button class="guide-bookmark">
+            <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+        </div>
+        <p class="guide-card-bio">Traditional Ashtanga practitioner blending ancient technique with modern breathwork science.</p>
+        <div class="guide-card-footer">
+          <div class="guide-stats">
+            <div class="guide-stat"><strong>4.9</strong> Rating</div>
+            <div class="guide-stat"><strong>29</strong> Classes</div>
+          </div>
+          <button class="guide-follow-btn">Follow</button>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-card-top">
+          <img class="guide-card-img" src="teachersimages/ella.jpeg" alt="Ella Rose" />
+          <div class="guide-card-info">
+            <p class="guide-card-name">Ella Rose</p>
+            <p class="guide-card-role">Hatha · Sound Healing</p>
+            <div class="guide-card-tags">
+              <span class="guide-tag">Beginners</span>
+              <span class="guide-tag">Calm</span>
+            </div>
+          </div>
+          <button class="guide-bookmark">
+            <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+        </div>
+        <p class="guide-card-bio">Hatha foundations merged with sound healing for a profoundly centering practice.</p>
+        <div class="guide-card-footer">
+          <div class="guide-stats">
+            <div class="guide-stat"><strong>5.0</strong> Rating</div>
+            <div class="guide-stat"><strong>21</strong> Classes</div>
+          </div>
+          <button class="guide-follow-btn">Follow</button>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-card-top">
+          <img class="guide-card-img" src="teachersimages/liv.jpeg" alt="Liv Thomas" />
+          <div class="guide-card-info">
+            <p class="guide-card-name">Liv Thomas</p>
+            <p class="guide-card-role">Kundalini · Meditation</p>
+            <div class="guide-card-tags">
+              <span class="guide-tag">Energy</span>
+              <span class="guide-tag">Awakening</span>
+            </div>
+          </div>
+          <button class="guide-bookmark">
+            <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+        </div>
+        <p class="guide-card-bio">Kundalini and breathwork to awaken energy, clear stagnation and elevate consciousness.</p>
+        <div class="guide-card-footer">
+          <div class="guide-stats">
+            <div class="guide-stat"><strong>4.7</strong> Rating</div>
+            <div class="guide-stat"><strong>44</strong> Classes</div>
+          </div>
+          <button class="guide-follow-btn">Follow</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SCREEN: PROFILE
+  ════════════════════════════════════════════════ -->
+  <div class="screen screen-profile" id="screen-profile">
+    <div class="profile-hero">
+      <div class="profile-avatar">D</div>
+      <p class="profile-name">Welcome back</p>
+      <p class="profile-email">Your wellness journey</p>
+    </div>
+    <div class="profile-stats">
+      <div class="profile-stat">
+        <span class="profile-stat-val">12</span>
+        <span class="profile-stat-label">Rituals</span>
+      </div>
+      <div class="profile-stat">
+        <span class="profile-stat-val">4.2h</span>
+        <span class="profile-stat-label">This week</span>
+      </div>
+      <div class="profile-stat">
+        <span class="profile-stat-val">7</span>
+        <span class="profile-stat-label">Day streak</span>
+      </div>
+    </div>
+    <div class="profile-section">
+      <p class="profile-section-title">Settings</p>
+      <div class="profile-item">
+        <span class="profile-item-label">Daily reminder</span>
+        <span class="profile-item-value">7:00 AM</span>
+      </div>
+      <div class="profile-item">
+        <span class="profile-item-label">Practice goal</span>
+        <span class="profile-item-value">20 min / day</span>
+      </div>
+      <div class="profile-item">
+        <span class="profile-item-label">Preferred style</span>
+        <span class="profile-item-value">Vinyasa · Yin</span>
+      </div>
+      <div class="profile-item">
+        <span class="profile-item-label">Notifications</span>
+        <span class="profile-item-value">On</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════
+       BOTTOM NAVIGATION
+  ════════════════════════════════════════════════ -->
+  <nav class="bottom-nav">
+
+    <button class="nav-btn active" id="nav-home" onclick="goTo('screen-home')">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+      <span>Home</span>
+    </button>
+
+    <button class="nav-btn" id="nav-rituals" onclick="goTo('screen-generator')">
+      <svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+      <span>Rituals</span>
+    </button>
+
+    <button class="nav-btn" id="nav-explore" onclick="goTo('screen-explore')">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span>Explore</span>
+    </button>
+
+    <button class="nav-btn" id="nav-profile" onclick="goTo('screen-profile')">
+      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span>Profile</span>
+    </button>
+
+  </nav>
+
+</div><!-- end .app-shell -->
+
+
+<script>
+// ─── NAVIGATION ────────────────────────────────────────────
+
+const NAV_MAP = {
+  'screen-home':      'nav-home',
+  'screen-generator': 'nav-rituals',
+  'screen-result':    'nav-rituals',
+  'screen-player':    'nav-rituals',
+  'screen-explore':   'nav-explore',
+  'screen-guides':    'nav-profile',
+  'screen-profile':   'nav-profile',
+};
+
+let currentScreen = 'screen-home';
+
+function goTo(id) {
+  if (id === currentScreen) return;
+
+  const prev = document.getElementById(currentScreen);
+  const next = document.getElementById(id);
+  if (!prev || !next) return;
+
+  prev.classList.remove('active');
+  prev.classList.add('exit');
+  setTimeout(() => prev.classList.remove('exit'), 380);
+
+  next.scrollTop = 0;
+  next.classList.add('active');
+
+  updateNav(id);
+  currentScreen = id;
+}
+
+function updateNav(screenId) {
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  const navId = NAV_MAP[screenId];
+  if (navId) {
+    const el = document.getElementById(navId);
+    if (el) el.classList.add('active');
+  }
+}
+
+
+// ─── AI GENERATOR ──────────────────────────────────────────
+
+const genSel = { mood: null, energy: null, time: null, goal: null };
+
+function genPick(group, val, el) {
+  document.querySelectorAll('.chip[onclick*="genPick(\'' + group + '\'"]').forEach(c => c.classList.remove('sel'));
+  el.classList.add('sel');
+  genSel[group] = val;
+  checkGenReady();
+}
+
+function checkGenReady() {
+  const ready = Object.values(genSel).every(v => v !== null);
+  const btn = document.getElementById('gen-btn');
+  if (btn) btn.disabled = !ready;
+}
+
+
+// ─── RITUAL DATA ────────────────────────────────────────────
+
+const GUIDES = {
+  relaxation: { name: 'Linda Walker',  role: 'Yin · Restorative',     img: 'teachersimages/linda.jpeg' },
+  power:      { name: 'Sophia Chen',   role: 'Vinyasa · Power',        img: 'teachersimages/sophia.jpeg' },
+  breath:     { name: 'Robert Maes',   role: 'Ashtanga · Pranayama',   img: 'teachersimages/rob.jpeg' },
+  sound:      { name: 'Ella Rose',     role: 'Hatha · Sound Healing',  img: 'teachersimages/ella.jpeg' },
+  kundalini:  { name: 'Liv Thomas',    role: 'Kundalini · Meditation', img: 'teachersimages/liv.jpeg' },
+  ral:        { name: 'Rafael Moreno', role: 'Alignment · Hatha',      img: 'teachersimages/ral.jpeg' },
+};
+
+const FLOWS = {
+  morning: [
+    { name: 'Centering Breath',    dur: '3 min',  img: 'images/pic1.jpg' },
+    { name: 'Sun Salutation A',    dur: '5 min',  img: 'images/urdamuka.jpg' },
+    { name: 'Warrior Sequence',    dur: '8 min',  img: 'images/yogastudio.jpeg' },
+    { name: 'Balance Postures',    dur: '5 min',  img: 'images/pic1.jpg' },
+    { name: 'Seated Forward Fold', dur: '4 min',  img: 'images/tea.jpg' },
+  ],
+  yin: [
+    { name: 'Opening Breath',   dur: '3 min', img: 'images/tea.jpg' },
+    { name: 'Butterfly Pose',   dur: '4 min', img: 'images/pic6.jpg' },
+    { name: 'Dragon Pose',      dur: '5 min', img: 'images/urdamuka.jpg' },
+    { name: 'Sleeping Swan',    dur: '5 min', img: 'images/pic1.jpg' },
+    { name: 'Savasana',         dur: '7 min', img: 'images/pic6.jpg' },
+  ],
+  breathwork: [
+    { name: 'Natural Breath',     dur: '2 min', img: 'images/pic7.jpg' },
+    { name: 'Box Breathing 4x4',  dur: '4 min', img: 'images/pic7.jpg' },
+    { name: 'Breath Retention',   dur: '5 min', img: 'images/yogastudio.jpeg' },
+    { name: 'Humming Bee Breath', dur: '5 min', img: 'images/pic7.jpg' },
+    { name: 'Integration',        dur: '3 min', img: 'images/tea.jpg' },
+  ],
+  sleep: [
+    { name: 'Body Scan',           dur: '5 min',  img: 'images/pic6.jpg' },
+    { name: 'Legs Up the Wall',    dur: '7 min',  img: 'images/urdamuka.jpg' },
+    { name: 'Yoga Nidra Rotation', dur: '10 min', img: 'images/pic6.jpg' },
+    { name: 'Deep Exhale Breath',  dur: '5 min',  img: 'images/pic7.jpg' },
+    { name: 'Full Release',        dur: '8 min',  img: 'images/tea.jpg' },
+  ],
+};
+
+const RITUALS = {
+  anxious: {
+    restore:    { name: 'Stillness & Ground',  tags: ['Anxiety Relief','Yin','Gentle'],         desc: 'Slow, grounding postures and extended exhale breathing to quiet the nervous system and return to centre.',              flow: FLOWS.yin,        guide: 'relaxation' },
+    release:    { name: 'Shake & Surrender',   tags: ['Release Tension','Movement','Breath'],    desc: 'Somatic movement and breath retention to discharge anxious energy from the body.',                                     flow: FLOWS.breathwork, guide: 'breath' },
+    strengthen: { name: 'Rooted Power',        tags: ['Grounding','Strength','Focus'],           desc: 'Standing sequences to build felt-sense safety through embodied strength.',                                            flow: FLOWS.morning,    guide: 'ral' },
+    transcend:  { name: 'Dissolve & Rise',     tags: ['Kundalini','Breathwork','Uplift'],        desc: 'Kundalini breathwork to transmute anxiety into awareness and expansion.',                                             flow: FLOWS.breathwork, guide: 'kundalini' },
+  },
+  depleted: {
+    restore:    { name: 'Replenish Flow',      tags: ['Restorative','Nourishing','Yin'],         desc: 'A deeply nourishing yin sequence designed to refill your reserves without depleting you further.',                   flow: FLOWS.yin,        guide: 'relaxation' },
+    release:    { name: 'Let It Go',           tags: ['Release','Gentle','Sound'],              desc: 'Gentle movement and sound healing vibrations to release what is weighing you down.',                                  flow: FLOWS.sleep,      guide: 'sound' },
+    strengthen: { name: 'Slow Build',          tags: ['Mild Effort','Hatha','Energy'],           desc: 'A measured hatha sequence that gently reactivates energy without overwhelm.',                                        flow: FLOWS.morning,    guide: 'ral' },
+    transcend:  { name: 'Inner Luminance',     tags: ['Meditation','Kundalini','Rest'],          desc: 'A stillness practice to access deep inner resource even when external energy is low.',                               flow: FLOWS.sleep,      guide: 'kundalini' },
+  },
+  restless: {
+    restore:    { name: 'Settle & Centre',     tags: ['Calming','Yin','Grounding'],             desc: 'Extended holds and deep breathing to convert restless energy into rooted presence.',                                  flow: FLOWS.yin,        guide: 'relaxation' },
+    release:    { name: 'Move & Empty',        tags: ['Dynamic','Release','Vinyasa'],           desc: 'Flowing vinyasa to channel restless energy into purposeful movement, then empty fully.',                              flow: FLOWS.morning,    guide: 'power' },
+    strengthen: { name: 'Channel & Build',     tags: ['Power','Flow','Focus'],                  desc: 'Power yoga to redirect restless momentum into progressive strength and clarity.',                                     flow: FLOWS.morning,    guide: 'power' },
+    transcend:  { name: 'Fire into Light',     tags: ['Kundalini','Energy Work','Transcend'],   desc: 'Kundalini techniques to transform restless fire into radiant awareness.',                                             flow: FLOWS.breathwork, guide: 'kundalini' },
+  },
+  calm: {
+    restore:    { name: 'Deep Nourish',        tags: ['Restorative','Yin','Bliss'],             desc: 'A deeply passive yin sequence to deepen your existing calm into profound restoration.',                               flow: FLOWS.yin,        guide: 'relaxation' },
+    release:    { name: 'Gentle Unwind',       tags: ['Release','Sound','Meditation'],          desc: 'Sound healing and gentle forward folds to release the last subtle held tensions.',                                    flow: FLOWS.sleep,      guide: 'sound' },
+    strengthen: { name: 'Grounded Flow',       tags: ['Vinyasa','Strength','Presence'],         desc: 'Steady vinyasa flows from a calm foundation — build strength without losing your centre.',                           flow: FLOWS.morning,    guide: 'power' },
+    transcend:  { name: 'Open Awareness',      tags: ['Meditation','Pranayama','Expand'],       desc: 'Pranayama and open awareness meditation to expand your calm into spacious consciousness.',                            flow: FLOWS.breathwork, guide: 'breath' },
+  },
+};
+
+
+// ─── GENERATE RITUAL ────────────────────────────────────────
+
+function generateRitual() {
+  const btn = document.getElementById('gen-btn');
+  btn.classList.add('loading');
+  btn.disabled = true;
+
+  setTimeout(() => {
+    const ritual = RITUALS[genSel.mood] && RITUALS[genSel.mood][genSel.goal];
+    if (!ritual) {
+      btn.classList.remove('loading');
+      btn.disabled = false;
+      return;
+    }
+
+    document.getElementById('result-name').textContent = ritual.name;
+    document.getElementById('result-desc').textContent = ritual.desc;
+
+    const tagsEl = document.getElementById('result-tags');
+    tagsEl.innerHTML = ritual.tags.map(t => '<span class="result-tag">' + t + '</span>').join('');
+
+    const stepsEl = document.getElementById('result-flow-steps');
+    stepsEl.innerHTML = ritual.flow.map((step, i) =>
+      '<div class="flow-step">' +
+        '<div class="flow-step-num">' + (i + 1) + '</div>' +
+        '<img class="flow-step-img" src="' + step.img + '" alt="' + step.name + '" />' +
+        '<div class="flow-step-info">' +
+          '<p class="flow-step-name">' + step.name + '</p>' +
+          '<p class="flow-step-dur">' + step.dur + '</p>' +
+        '</div>' +
+      '</div>'
+    ).join('');
+
+    const g = GUIDES[ritual.guide];
+    document.getElementById('result-guide-img').src = g.img;
+    document.getElementById('result-guide-name').textContent = g.name;
+    document.getElementById('result-guide-role').textContent = g.role;
+
+    currentFlow = ritual.flow;
+    currentStep = 0;
+
+    btn.classList.remove('loading');
+    btn.disabled = false;
+
+    goTo('screen-result');
+  }, 1400);
+}
+
+
+// ─── PLAYER ─────────────────────────────────────────────────
+
+let currentFlow = [];
+let currentStep = 0;
+let isPlaying = false;
+let playerTimer = null;
+let elapsed = 0;
+
+function startRitual() {
+  loadStep(0);
+  goTo('screen-player');
+}
+
+function loadQuick(key) {
+  currentFlow = FLOWS[key] || FLOWS.morning;
+  currentStep = 0;
+  loadStep(0);
+  goTo('screen-player');
+}
+
+function loadStep(index) {
+  if (!currentFlow.length) return;
+  currentStep = index;
+  const step = currentFlow[index];
+  const total = currentFlow.length;
+
+  document.getElementById('player-img').src = step.img;
+  document.getElementById('player-step-label').textContent = 'Step ' + (index + 1) + ' of ' + total;
+  document.getElementById('player-step-name').textContent = step.name;
+  document.getElementById('player-step-dur').textContent = step.dur;
+
+  const mins = parseInt(step.dur) || 5;
+  const totalSecs = mins * 60;
+  document.getElementById('player-time-total').textContent = formatTime(totalSecs);
+  document.getElementById('player-time-cur').textContent = '0:00';
+  document.getElementById('player-progress').style.width = '0%';
+
+  elapsed = 0;
+  stopTimer();
+  renderUpNext();
+}
+
+function renderUpNext() {
+  const list = document.getElementById('upnext-list');
+  const upcoming = currentFlow.filter((_, i) => i > currentStep).slice(0, 3);
+  if (!upcoming.length) {
+    list.innerHTML = '<p style="font-family:var(--sans);font-size:12px;color:var(--mushroom);padding:12px 0">End of ritual</p>';
+    return;
+  }
+  list.innerHTML = upcoming.map((s, i) =>
+    '<div class="upnext-item" onclick="loadStep(' + (currentStep + 1 + i) + ')">' +
+      '<img class="upnext-img" src="' + s.img + '" alt="' + s.name + '" />' +
+      '<div class="upnext-info">' +
+        '<p class="upnext-name">' + s.name + '</p>' +
+        '<p class="upnext-dur">' + s.dur + '</p>' +
+      '</div>' +
+    '</div>'
+  ).join('');
+}
+
+function togglePlay() {
+  isPlaying ? pausePlayer() : playPlayer();
+}
+
+function playPlayer() {
+  isPlaying = true;
+  setPlayIcon(false);
+
+  const step = currentFlow[currentStep];
+  const totalSecs = (parseInt(step.dur) || 5) * 60;
+
+  playerTimer = setInterval(function() {
+    elapsed++;
+    const pct = Math.min((elapsed / totalSecs) * 100, 100);
+    document.getElementById('player-progress').style.width = pct + '%';
+    document.getElementById('player-time-cur').textContent = formatTime(elapsed);
+
+    if (elapsed >= totalSecs) {
+      stopTimer();
+      nextStep();
+    }
+  }, 1000);
+}
+
+function pausePlayer() {
+  isPlaying = false;
+  stopTimer();
+  setPlayIcon(true);
+}
+
+function stopTimer() {
+  clearInterval(playerTimer);
+  playerTimer = null;
+  isPlaying = false;
+  setPlayIcon(true);
+}
+
+function setPlayIcon(showPlay) {
+  const icon = document.getElementById('play-icon');
+  if (!icon) return;
+  if (showPlay) {
+    icon.innerHTML = '<polygon points="5,3 19,12 5,21"/>';
+  } else {
+    icon.innerHTML = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+  }
+}
+
+function nextStep() {
+  if (currentStep < currentFlow.length - 1) loadStep(currentStep + 1);
+}
+
+function prevStep() {
+  if (currentStep > 0) loadStep(currentStep - 1);
+}
+
+function formatTime(secs) {
+  const m = Math.floor(secs / 60);
+  const s = secs % 60;
+  return m + ':' + (s < 10 ? '0' : '') + s;
+}
+
+
+// ─── EXPLORE FILTER CHIPS ───────────────────────────────────
+
+document.querySelectorAll('.filter-chip').forEach(function(chip) {
+  chip.addEventListener('click', function() {
+    document.querySelectorAll('.filter-chip').forEach(function(c) { c.classList.remove('active'); });
+    chip.classList.add('active');
+  });
+});
+</script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js').catch(function() {
+        // SW registration failed — app still works online
+      });
+    });
+  }
+</script>
+
+</body>
+</html>

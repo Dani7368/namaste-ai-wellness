@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="contactus.css">
+</head>
+<body>
+    <div class="container">
+        <div class="top-container">
+            <div class="logo"> 
+                <img src="images/logo.jpg" width="40" height="40">
+                <h2>NAMASTE</h2>
+            </div>
+            <a href="home.html">BACK TO HOME</a> 
+        </div>
+        <div class="contact-us ">
+            <h1>CONTACT US</h1>
+            <div class="info">
+                <div>
+                    <p>1234-5678-90<br><br>
+                    info@gmail.com</p>
+                </div>
+                <div>
+                    <p>AM ISRAEL HAY ,Washington</p>
+                </div>
+              
+            </div>
+            <div class="email">
+                <div class="div1"></div>
+
+                <div class="div2">
+                    <p>Stay Connect With US</p>
+                    <p>Enter Your Email Here * </p>
+                    <div class="box">
+                        <label for="email"></label>
+                        <input type="text" id="txt1" name="email" required>
+                        <button type="submit" id="btn1" >Subscribe</button>
+                        <div class="error-message" id="error-message"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.getElementById("btn1").onclick = function () {
+                var emailInput = document.getElementById("txt1").value;
+                var errorMessage = document.getElementById("error-message");
+            
+               
+                var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            
+                if (emailPattern.test(emailInput)) {
+                  
+                    window.location.href = "thanku.html"; 
+                } else {
+                    
+                    errorMessage.textContent = "Please enter a valid email address.";
+                    errorMessage.style.color = "red";
+                }
+            };
+            </script>
+</body>
+</html>

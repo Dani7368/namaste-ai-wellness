@@ -1,0 +1,35 @@
+{
+  "name": "Namaste — AI Wellness",
+  "short_name": "Namaste",
+  "description": "AI-powered personalized yoga and wellness rituals",
+  "start_url": "/home.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F4EFE6",
+  "theme_color": "#5B4C3A",
+  "categories": ["health", "fitness", "lifestyle"],
+  "icons": [
+    {
+      "src": "images/newlogo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/newlogo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/pexels-polina-kovaleva-6019787.jpg",
+      "sizes": "430x900",
+      "type": "image/jpeg",
+      "form_factor": "narrow"
+    }
+  ],
+  "prefer_related_applications": false
+}
